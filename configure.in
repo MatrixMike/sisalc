@@ -5,7 +5,7 @@ AC_CANONICAL_HOST
 # -----------------------------------------------
 # Set version
 # -----------------------------------------------
-version="14.0.4"
+version="14.0.5"
 AC_MSG_CHECKING(version number)
 AC_MSG_RESULT($version)
 AC_SUBST(version)
@@ -531,6 +531,7 @@ AC_OUTPUT(makefile
 	Backend/If2mem/makefile
 	Backend/If2part/makefile
 	Backend/If2up/makefile
+	Runtime/Sharedlib/sisalrt.h
 	Runtime/Sharedlib/makefile
 	Tools/sisalc/makefile
 )

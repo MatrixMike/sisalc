@@ -15,7 +15,7 @@
 /**************************************************************************/
 
 /* On MacOSX... pthread has to come before signal.h (Steve Fitzgerald) */
-#define PThreadsModel
+#define @model@Model
 #ifdef PThreadsModel
 #include <pthread.h>
 #endif

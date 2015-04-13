@@ -1394,7 +1394,7 @@ host_os=`echo $ac_cv_host | sed 's/^\([^-]*\)-\([^-]*\)-\(.*\)$/\3/'`
 # -----------------------------------------------
 # Set version
 # -----------------------------------------------
-version="14.0.4"
+version="14.0.5"
 echo "$as_me:$LINENO: checking version number" >&5
 echo $ECHO_N "checking version number... $ECHO_C" >&6
 echo "$as_me:$LINENO: result: $version" >&5
@@ -7389,7 +7389,7 @@ echo "${ECHO_T}$instrument_runtime" >&6
 top_level_directory=`pwd`
 
 
-                                                                                                                                            ac_config_files="$ac_config_files makefile Include/sisalPaths.h Include/sisalInfo.h Include/makefile.inc Frontend/Front1/makefile Backend/Library/makefile Backend/If1ld/makefile Backend/If1opt/makefile Backend/If2gen/makefile Backend/If2mem/makefile Backend/If2part/makefile Backend/If2up/makefile Runtime/Sharedlib/makefile Tools/sisalc/makefile"
+                                                                                                                                                      ac_config_files="$ac_config_files makefile Include/sisalPaths.h Include/sisalInfo.h Include/makefile.inc Frontend/Front1/makefile Backend/Library/makefile Backend/If1ld/makefile Backend/If1opt/makefile Backend/If2gen/makefile Backend/If2mem/makefile Backend/If2part/makefile Backend/If2up/makefile Runtime/Sharedlib/sisalrt.h Runtime/Sharedlib/makefile Tools/sisalc/makefile"
 cat >confcache <<\_ACEOF
 # This file is a shell script that caches the results of configure
 # tests run on this system so they can be shared between configure
@@ -7927,6 +7927,7 @@ do
   "Backend/If2mem/makefile" ) CONFIG_FILES="$CONFIG_FILES Backend/If2mem/makefile" ;;
   "Backend/If2part/makefile" ) CONFIG_FILES="$CONFIG_FILES Backend/If2part/makefile" ;;
   "Backend/If2up/makefile" ) CONFIG_FILES="$CONFIG_FILES Backend/If2up/makefile" ;;
+  "Runtime/Sharedlib/sisalrt.h" ) CONFIG_FILES="$CONFIG_FILES Runtime/Sharedlib/sisalrt.h" ;;
   "Runtime/Sharedlib/makefile" ) CONFIG_FILES="$CONFIG_FILES Runtime/Sharedlib/makefile" ;;
   "Tools/sisalc/makefile" ) CONFIG_FILES="$CONFIG_FILES Tools/sisalc/makefile" ;;
   "Include/sisalConfig.h" ) CONFIG_HEADERS="$CONFIG_HEADERS Include/sisalConfig.h" ;;
