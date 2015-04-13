@@ -10,6 +10,8 @@
  */
 /**************************************************************************/
 
+#include <errno.h>
+
 #include "sisalInfo.h"
 
 /**************************************************************************/
@@ -142,9 +144,9 @@ typedef unsigned char boolean;
 #endif
 
 
-#define maxstringchars  127
+#define maxstringchars  1024
 
-#define blankstring     "                                                                                                                                    "
+char blankstring[maxstringchars];
 
 #define maxbigint       SHORT_MAX
 /* Constants from setutl.m4 */
@@ -731,7 +733,7 @@ typedef struct {
 typedef Char stryngar[maxstringchars];
 
 typedef struct stryng {
-  char len;
+  int len;
   stryngar str;
 } stryng;
 
@@ -3124,42 +3126,8 @@ int code, ior;
         bufp = buf;
     }
     if (code == -10) {
-        sprintf(bufp, "Pascal system I/O error %d", ior);
-        switch (ior) {
-            case 3:
-                strcat(buf, " (illegal I/O request)");
-                break;
-            case 7:
-                strcat(buf, " (bad file name)");
-                break;
-            case FileNotFound:   /*10*/
-                strcat(buf, " (file not found)");
-                break;
-            case FileNotOpen:    /*13*/
-                strcat(buf, " (file not open)");
-                break;
-            case BadInputFormat: /*14*/
-                strcat(buf, " (bad input format)");
-                break;
-            case 24:
-                strcat(buf, " (not open for reading)");
-                break;
-            case 25:
-                strcat(buf, " (not open for writing)");
-                break;
-            case 26:
-                strcat(buf, " (not open for direct access)");
-                break;
-            case 28:
-                strcat(buf, " (string subscript out of range)");
-                break;
-            case EndOfFile:      /*30*/
-                strcat(buf, " (end-of-file)");
-                break;
-            case FileWriteError: /*38*/
-                strcat(buf, " (file write error)");
-                break;
-        }
+        sprintf(bufp, "Pascal system I/O error %d: ", ior);
+	strcat(buf,strerror(errno));
     } else {
         sprintf(bufp, "Pascal system error %d", code);
         switch (code) {
@@ -4528,7 +4496,7 @@ parrec **outfile, **paramlist;
 stryng hohoho;
 stryng s;
 
-defaultext(&hohoho, &(infile[0]->parvalue), "spp       ");
+defaultext(&hohoho, &(outfile[0]->parvalue), "spp       ");
 s = hohoho;
 stripspaces(&s);
 concatchar(&s, '\0');
@@ -21815,6 +21783,7 @@ int line, col;
   symtblbucket *sym;
   errorrecord *errorrec;
   tcstacklistrec *tclist;
+  tcstacklistrec *save_tclist;
 
   if (semtrace)
     printf(" In CheckTagNames\n");
@@ -21825,8 +21794,9 @@ int line, col;
   names = namel->UU.namelist;
   tclist = semtclist->UU.tcstacklist;
   ttype = NULL;
+  save_tclist = tclist; /* BUGFIX for lists of tags 6/9/03 */
   while (names != NULL) {
-    tclist = findtag(names->name, tclist);
+    tclist = findtag(names->name, save_tclist);
     if (tclist == NULL) {
       errorrec = newerrorptr(nameundeftc);
       errorrec->UU.errorstr = names->name;
@@ -28331,6 +28301,8 @@ Char *argv[];
     else if ( argv[i][1] == 'F' ) /* NEW CANN */
       CANN_file_name = &(argv[i][2]); /* NEW CANN */
     }                                            /* NEW CANN */
+
+  for(i=0;i<maxstringchars;++i) blankstring[i] = ' ';
 
   PASCAL_MAIN(argc, argv);
   /*llparse*/

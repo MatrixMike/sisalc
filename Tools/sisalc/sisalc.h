@@ -32,10 +32,13 @@ extern void if1ld PROTO((charStarQueue** if1Files,
                          
                          int forFortran,
                          int forC,
+			 int separateCompilation,
+
                          charStarQueue** entries,
                          charStarQueue** entriesForC,
                          charStarQueue** entriesForFORTRAN,
                          charStarQueue** reductionFunctions,
+
                          char* QStamps
                          ));
 
@@ -105,12 +108,14 @@ extern void if2gen PROTO((char* file,
                           int associativeReductions,
                           int FORTRANIntrinsicBitFunctions,
                           int vector,
-                          int bounds
+                          int bounds,
+                          int fileio
                           ));
 
 extern void compile PROTO((char* file,
                            char* result,
                            char* includedir,
+			   int profiling,
                            char* compiler,
                            char* flags
                            ));
