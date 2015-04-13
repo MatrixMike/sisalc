@@ -44,7 +44,7 @@ void bogus_call_to_force_link_countitems(void) {
 
 
 /*
- * $Log: CountItems.c,v $
+ * $Log$
  * Revision 1.3  2003/12/11 22:28:18  patmiller
  * Updates to handle bogus linker error with GCC on MacOSX
  * wherein the linker fails to load from .o that have no

@@ -50,7 +50,7 @@
 extern FILE *infoptr;   /* info output file */
 
 /*
- * $Log: world.h,v $
+ * $Log$
  * Revision 1.2  2001/01/02 09:16:46  patmiller
  * Now ANSI compliant, but still a pthread problem
  *
@@ -121,7 +121,7 @@ extern FILE *infoptr;   /* info output file */
  * I don't remember what I needed to touch up.
  *
  * Revision 1.2  1993/01/07  00:12:19  miller
- * Added $Log: world.h,v $
+ * Added $Log$
  * Added Revision 1.2  2001/01/02 09:16:46  patmiller
  * Added Now ANSI compliant, but still a pthread problem
  * Added

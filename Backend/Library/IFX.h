@@ -1587,7 +1587,10 @@ extern void     CheckEdge PROTO((PEDGE));
 extern int      UsingPatch PROTO((int));
 
 /*
- * $Log: IFX.h,v $
+ * $Log$
+ * Revision 1.3  2007/05/19 15:29:38  patmiller
+ * new release
+ *
  * Revision 1.2  2001/01/02 09:16:45  patmiller
  * Now ANSI compliant, but still a pthread problem
  *

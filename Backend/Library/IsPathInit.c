@@ -20,7 +20,7 @@ PNODE nn;
 }
 
 /*
- * $Log: IsPathInit.c,v $
+ * $Log$
  * Revision 1.2  2001/01/02 09:16:45  patmiller
  * Now ANSI compliant, but still a pthread problem
  *

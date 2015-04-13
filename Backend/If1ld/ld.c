@@ -625,7 +625,7 @@ char **argv;
 }
 
 /*
- * $Log: ld.c,v $
+ * $Log$
  * Revision 1.4  2003/06/15 06:56:39  patmiller
  * Fixes for separate compilation.  Uncovered a serious leak with
  * separate compilation globals.  Set refcount to 1gig to mask

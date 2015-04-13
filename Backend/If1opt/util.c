@@ -6,7 +6,7 @@
 /* Copyright (C) University of California Regents                         */
 /**************************************************************************/
 /*
- * $Log: util.c,v $
+ * $Log$
  * Revision 1.2  2001/01/01 05:46:22  patmiller
  * Adding prototypes and header info -- all will be broken
  *

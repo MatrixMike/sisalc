@@ -105,7 +105,7 @@ PNODE n2;
 }
 
 /*
- * $Log: FastAreNodesE.c,v $
+ * $Log$
  * Revision 1.4  2002/11/21 04:05:05  patmiller
  * Continued updates.  A number of 15 year old bugs have been
  * fixed up:
