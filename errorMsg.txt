@@ -1,0 +1,3 @@
+collect2: error: ld returned 1 exit status
+Makefile:286: recipe for target 'if1opt' failed
+
